@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обертання Місяця навколо Землі</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000033;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .solar-system {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .orbit {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 1px dashed rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .earth {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background-image: url('earth.png');
+            background-size: cover;
+            z-index: 2;
+        }
+
+        .moon-container {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbit 10s linear infinite;
+        }
+
+        .moon {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-image: url('moon.png');
+            background-size: cover;
+            border-radius: 50%;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes orbit {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="solar-system">
+    <div class="orbit"></div>
+    <div class="earth"></div>
+    <div class="moon-container">
+        <div class="moon"></div>
+    </div>
+</div>
+</body>
+</html>
